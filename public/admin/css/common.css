@@ -27,6 +27,10 @@ a:hover {
   position: fixed;
   top: 0;
   left: 0;
+  transition: all 1s;
+}
+.lt_aside.now {
+  left: -180px;
 }
 .lt_aside .title {
   width: 100%;
@@ -54,6 +58,9 @@ a:hover {
   display: block;
   padding-left: 50px;
 }
+.lt_aside .nav .child {
+  display: none;
+}
 .lt_aside .nav .child a {
   padding-left: 70px;
 }
@@ -61,6 +68,10 @@ a:hover {
   margin-left: 180px;
   height: 100%;
   overflow: hidden;
+  transition: all 1s;
+}
+.lt_main.now {
+  margin-left: 0;
 }
 .lt_main .header {
   line-height: 50px;
