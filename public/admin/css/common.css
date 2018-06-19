@@ -57,6 +57,11 @@ a:hover {
   height: 40px;
   display: block;
   padding-left: 50px;
+  border-left: 3px solid transparent;
+}
+.lt_aside .nav a.now {
+  border-left: 1px solid #367fa9;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .lt_aside .nav .child {
   display: none;
