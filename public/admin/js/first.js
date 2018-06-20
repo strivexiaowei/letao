@@ -27,11 +27,40 @@ $(function () {
   }
   $(".btnaddfirst").on("click", function () {
     $("#addfirstModal").modal("show");
-  })
-  $("form").bootstrapValidator({
-
-
-
-
   });
+  
+  $("form").bootstrapValidator({
+    feedbackIcons: {
+      valid: 'glyphicon glyphicon-ok',
+      invalid: 'glyphicon glyphicon-remove',
+      validating: 'glyphicon glyphicon-refresh'
+    },
+    fields: {
+      categoryName: {
+        validators: {
+          notEmpty: {
+            message: '请输入一级分类名称'
+          }
+        }
+      }
+    }
+  });
+
+   $("form").on("success.form.bv", function (e) {
+    e.preventDefault();
+    $.ajax({
+      type: "post",
+      url: "/category/addTopCategory",
+      data: {
+        categoryName: $("#categoryName").val()
+      },
+      success: function (info) {
+        page=1;
+        render()
+        $("#addfirstModal").modal("hide");
+        $("form").data('bootstrapValidator').resetForm();
+        $("form")[0].reset();
+      }
+    });
+  })
 })

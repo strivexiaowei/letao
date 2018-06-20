@@ -51,7 +51,6 @@ $(function () {
       data: $("form").serialize(),
       success: function (info) {
   
-        console.log(info);
         if (info.success) {
           location.href = "index.html";
         }
