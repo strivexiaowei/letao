@@ -218,8 +218,8 @@ $(function () {
       if(imgs.length >= 3){
         return false;
       }
-
-      //console.log(data.result);
+ 
+      console.log(data.result);
       //上传图片成功了
       //1. 把图片显示到页面中
       $(".img_box").append('<img src="'+data.result.picAddr+'" width="100" height="100" alt="">');
