@@ -83,3 +83,57 @@ body {
     }
   }
 }
+.lt_search {
+  padding: 10px;
+  .search_input {
+    line-height: 33px;
+    border-radius: 3px;
+    margin: 0;
+    height: 33px;
+    font-size: 12px;
+    border: 1px solid #007aff;
+  }
+  button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border-radius: 0 3px 3px 0;
+  }
+}
+.lt_product {
+  padding: 10px;
+   a:nth-child(odd) {
+    margin-right: 4%;
+  }
+   a{
+   float: left;
+   width: 48%;
+   border: 1px solid #ccc;
+   padding: 10px;
+   text-align: center;
+   margin-bottom: 10px;
+   span {
+    color: red;
+    
+   }
+   .oldPrice {
+    text-decoration: line-through;
+    color: #ccc;
+   }
+  }
+  .loading {
+    width: 50px;
+    height: 50px;
+    border: 3px solid @bgColor;
+    margin: 200px auto;
+    animation: zhuan 1s infinite;
+  }
+  @keyframes zhuan {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg)
+    }
+  }
+}
