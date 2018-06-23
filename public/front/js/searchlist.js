@@ -1,31 +1,45 @@
 $(function () {
-
-  function getSearch() {
-    var key = location.search;
-    key = decodeURI(key)
-    key = key.slice(1);
-    var arr = key.split("&")
-    var obj = {};
-    arr.forEach(function (e, i) {
-      var k = e.split("=")[0];
-      var v = e.split("=")[1];
-      obj[k] = v;
-    })
-    return obj
-  }
+  var page = 1;
+  var pageSize = 3;
+  var key = getSearch().key;
+  $(".search_input").val(key)
+  mui.init({
+    pullRefresh: {
+      container: ".mui-scroll-wrapper",//下拉刷新容器标识，querySelector能定位的css选择器均可，比如：id、.class等
+      down: {
+        auto: true,//可选,默认false.首次加载自动下拉刷新一次
+        //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+        callback: function () {
+          render(function (info) {
+            $(".lt_product").html(template("tpl", info))
+            mui('.mui-scroll-wrapper').pullRefresh().endPulldownToRefresh();
+            mui('.mui-scroll-wrapper').pullRefresh().refresh(true);
+          });
+        }
+      },
+      up: {
+        callback: function () {
+          render(function (info) {
+            console.log(info);
+            
+            $(".lt_product").append(template("tpl", info))
+            mui('.mui-scroll-wrapper').pullRefresh().endPullupToRefresh(true);
+          })
+        }//必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+      }
+    }
+  });
   // 页面初始化
   // 页面加载的时候给搜索框添加搜索的关键词
-  var search = getSearch();
-  var key = search.key;
-  $(".search_input").val(key)
-  render();
+ 
+
 
   $(".btn-search").on("click", function () {
     key = $(".search_input").val();
     $(".lt_sort a").removeClass("now").find("span").addClass("fa-angle-down").removeClass("fa-angle-up");
-    render();
+    mui('.mui-scroll-wrapper').pullRefresh().pulldownLoading();
   })
-  $(".lt_sort a[data-type]").on("click", function () {
+  $(".lt_sort a[data-type]").on("tap", function () {
     var $this = $(this);
     if ($this.hasClass("now")) {
       $this.find("span").toggleClass("fa-angle-down").toggleClass("fa-angle-up");
@@ -33,19 +47,15 @@ $(function () {
       $this.addClass("now").siblings().removeClass("now");
       $(".lt_sort a").find("span").addClass("fa-angle-down").removeClass("fa-angle-up");
     }
-    render();
+    mui('.mui-scroll-wrapper').pullRefresh().pulldownLoading();
   });
 
 
+  
 
-
-  function render() {
-    $(".lt_product").html('<div class="loading"></div>')
-    var proName = key;
-    var page = 1;
-    var pageSize = 10;
+  function render(callback) {
     var obj = {
-      proName: proName,
+      proName: key,
       page: page,
       pageSize: pageSize
     }
@@ -60,10 +70,12 @@ $(function () {
       url: "/product/queryProduct",
       data: obj,
       success: function (info) {
-        setTimeout(function () { 
-          $(".lt_product").html(template("tpl", info));
-         },1000)
+        setTimeout(function () {
+          callback(info);
+        }, 1000)
       }
     })
   }
-})
+
+  
+});
