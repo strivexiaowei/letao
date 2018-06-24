@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>乐淘商城-分类页</title>
+  <title>乐淘商城-详情页</title>
   <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="lib/mui/css/mui.css">
   <link rel="stylesheet" href="lib/fa/css/font-awesome.css">
@@ -18,81 +18,87 @@
       <a href="javascript:history.go(-1);" class="icon-left">
         <span class="mui-icon mui-icon-back"></span>
       </a>
-      <h4>乐淘分类</h4>
-      <a href="index.html" class="icon-right">
-        <span class="fa fa-search"></span>
+      <h4>商品详情</h4>
+      <a href="javascript:history.go(0);" class="icon-right">
+        <span class="mui-icon mui-icon-reload"></span>
       </a>
     </div>
     <div class="lt_content">
-      <div class="lt_category_nav">
-        <div class="mui-scroll-wrapper">
-          <div class="mui-scroll">
-            <ul>
-              <!-- 挖个坑 -->
-
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="lt_category_content">
-        <div class="mui-scroll-wrapper">
-          <div class="mui-scroll">
-            <ul>
-
-              <!-- 挖个坑 -->
-            </ul>
-          </div>
+      <div class="mui-scroll-wrapper">
+        <div class="mui-scroll">
+         <!-- 挖大坑 -->
         </div>
       </div>
     </div>
-    <div class="lt_footer">
-      <ul>
-        <li>
-          <a href="index.html">
-            <span class="fa fa-home"></span>
-            <p>首页</p>
-          </a>
-        </li>
-        <li>
-          <a href="category.html">
-            <span class="fa fa-bars"></span>
-            <p>分类</p>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <span class="fa fa-shopping-cart"></span>
-            <p>购物车</p>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <span class="fa fa-user"></span>
-            <p>会员中心</p>
-          </a>
-        </li>
-      </ul>
-    </div>
+    <div class="go_cart">
+        <button class="mui-btn mui-btn-link">去购物车</button>
+        <div class="mui-pull-right">
+            <button type="button" class="mui-btn mui-btn-danger">加入购物车</button>
+            <button type="button" class="mui-btn mui-btn-warning">立即购买</button>
+        </div>
+      </div>
   </div>
-  <script type="text/html" id="firstNav">
-   {{each rows v i }}
-    <li data-id="{{v.id}}" class="{{i===0?"now":""}}">
-        <a href="#">{{v.categoryName}}</a>
-    </li>
-    {{ /each }}
-  </script>
-  <script type="text/html" id="second">
-    {{ if rows.length===0 }}
-    <p style="padding:15px;">该分类没有更多的品牌信息</p>
-    {{/if}}
-    {{each rows v i }}
-    <li>
-        <a href="#">
-          <img src="{{v.brandLogo}}" alt="">
-          <p>{{ v.brandName}}</p>
-        </a>
-      </li>
-      {{ /each }}
+  <script type="text/html" id="tpl">
+  
+   <div class="mui-slider">
+            <div class="mui-slider-group mui-slider-loop">
+              <!--第一个内容区容器-->
+              <div class="mui-slider-item mui-slider-item-duplicate">
+                <a href="#">
+                  <img src="{{ pic[pic.length-1].picAddr }}">
+                </a>
+              </div>
+              {{each pic v i }}
+              <div class="mui-slider-item">
+                <a href="#">
+                  <img src="{{v.picAddr }}">
+                </a>
+              </div>
+              {{ /each }}
+              <div class="mui-slider-item mui-slider-item-duplicate">
+                <a href="#">
+                  <img src="{{pic[0].picAddr}}">
+                </a>
+              </div>
+            </div>
+            <div class="mui-slider-indicator">
+              {{ each pic v i }}
+              <div class="mui-indicator {{ i==0?'mui-active':'' }}"></div>
+              {{ /each }}
+            </div>
+          </div>
+          <div class="proName">
+            <strong>{{proName}}</strong>
+          </div>
+          <div class="product-price">
+            价格：
+            <span class="price">&yen;{{price}}</span>
+            <span class="oldPrice">&yen;{{oldPrice}}</span>
+          </div>
+          <div class="product-size">
+            尺码：
+            <% 
+               var temp=size.split("-");
+               for(var i = temp[0]; i<temp[1];i++ ){
+            %>
+            <span>{{i}}</span>
+            <% }  %>
+          </div>
+          <div class="product-num">
+            数量：
+            <div class="mui-numbox" data-numbox-min='1' data-numbox-max='{{num}}'>
+              <!-- "-"按钮，点击可减小当前数值 -->
+              <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+              <input class="mui-numbox-input" type="number" />
+              <!-- "+"按钮，点击可增大当前数值 -->
+              <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+            </div>
+            <span class="num">剩余数量：{{num}}双</span>
+          </div>
+          <div class="proDesc">
+            <p>详情：{{proDesc}}</p>
+          </div>
+  
   </script>
   <script src="lib/artTemplate/template-web.js"></script>
   <script src="lib/zepto/zepto.min.js"></script>
