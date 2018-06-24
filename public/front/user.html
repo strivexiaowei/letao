@@ -5,11 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>乐淘商城-搜索页</title>
+  <title>乐淘商城-会员中心</title>
   <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="lib/mui/css/mui.css">
   <link rel="stylesheet" href="lib/fa/css/font-awesome.css">
-  <link rel="stylesheet" href="css/search.css">
+  <link rel="stylesheet" href="css/user.css">
 </head>
 
 <body>
@@ -18,15 +18,25 @@
       <a href="javascript:history.go(-1);" class="icon-left">
         <span class="mui-icon mui-icon-back"></span>
       </a>
-      <h4>搜索中心</h4>
+      <h4>会员中心</h4>
     </div>
     <div class="lt_content">
-      <div class="lt_search">
-        <input type="text" placeholder="请输入搜索关键字" class="search_input">
-        <button class="mui-btn mui-btn-primary btn-search">搜索</button>
-      </div>
-      <div class="lt_history">
-        <!-- 挖个坑 -->
+      <ul class="mui-table-view">
+        <li class="mui-table-view-cell mui-media">
+          <!-- 挖个坑 -->
+        </li>
+        <li class="mui-table-view-cell">
+          <a class="mui-navigate-right">账户安全</a>
+        </li>
+        <li class="mui-table-view-cell">
+          <a class="mui-navigate-right" href="cart.html">我的购物车</a>
+        </li>
+        <li class="mui-table-view-cell">
+          <a class="mui-navigate-right">收货地址管理</a>
+        </li>
+      </ul>
+      <div class="logout_warp">
+        <button type="button" class="mui-btn mui-btn-block btn-logout">退出</button>
       </div>
     </div>
     <div class="lt_footer">
@@ -59,28 +69,19 @@
     </div>
   </div>
   <script type="text/html" id="tpl">
-    {{ if rows.length===0}}
-    <p>没有历史记录</p>
-    {{else}}
-    <div class="history-title mui-clearfix">
-      <span class="search_history mui-pull-left">搜索历史</span>
-      <span class="fa fa-trash mui-pull-right history-empty">清空记录</span>
-    </div>
-    <ul>
-      {{ each rows v i }}
-      <li>
-        <a href="searchlist.html?key={{v}}" class="mui-pull-left">{{v}}</a>
-        <span class="mui-icon mui-icon-closeempty mui-pull-right history-delete" data-index="{{i}}"></span>
-      </li>
-      {{ /each }}
-    </ul>
-    {{/if}}
+    <a href="javascript:;" class="mui-navigate-right">
+        <img class="mui-media-object mui-pull-left" src="./images/user.jpg">
+        <div class="mui-media-body">
+          {{username}}
+          <p class='mui-ellipsis'>绑定手机：{{mobile}}</p>
+        </div>
+      </a>
   </script>
   <script src="lib/artTemplate/template-web.js"></script>
   <script src="lib/zepto/zepto.min.js"></script>
   <script src="lib/mui/js/mui.js"></script>
   <script src="js/common.js"></script>
-  <script src="js/search.js"></script>
+  <script src="js/user.js"></script>
 </body>
 
 </html>

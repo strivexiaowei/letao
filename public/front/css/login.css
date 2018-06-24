@@ -1,0 +1,134 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+img {
+  display: block;
+  width: 100%;
+}
+html,
+body {
+  height: 100%;
+}
+.lt_container {
+  max-width: 640px;
+  min-width: 320px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  padding: 45px 0 55px;
+}
+.lt_container .lt_header {
+  width: 100%;
+  height: 45px;
+  background-color: #006699;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  line-height: 45px;
+}
+.lt_container .lt_header .icon-left,
+.lt_container .lt_header .icon-right {
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  top: 0;
+  color: #fff;
+}
+.lt_container .lt_header .icon-left {
+  left: 0;
+}
+.lt_container .lt_header .icon-right {
+  right: 0;
+}
+.lt_container .lt_header h4 {
+  line-height: 45px;
+  margin: 0;
+  color: #fff;
+}
+.lt_container .lt_content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #fff;
+}
+.lt_container .lt_footer {
+  width: 100%;
+  height: 55px;
+  background-color: #006699;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.lt_container .lt_footer li {
+  float: left;
+  width: 25%;
+  height: 100%;
+  text-align: center;
+  padding-top: 10px;
+  box-sizing: border-box;
+}
+.lt_container .lt_footer li a {
+  color: #fff;
+}
+.lt_container .lt_footer li p {
+  margin: 0;
+  color: #fff;
+}
+.lt_search {
+  padding: 10px;
+}
+.lt_search .search_input {
+  line-height: 33px;
+  border-radius: 3px;
+  margin: 0;
+  height: 33px;
+  font-size: 12px;
+  border: 1px solid #007aff;
+}
+.lt_search button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border-radius: 0 3px 3px 0;
+}
+.lt_product {
+  padding: 10px;
+}
+.lt_product a:nth-child(odd) {
+  margin-right: 4%;
+}
+.lt_product a {
+  float: left;
+  width: 48%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.lt_product a span {
+  color: red;
+}
+.lt_product a .oldPrice {
+  text-decoration: line-through;
+  color: #ccc;
+}
+.lt_product .loading {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #006699;
+  margin: 200px auto;
+  animation: zhuan 1s infinite;
+}
+@keyframes zhuan {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
