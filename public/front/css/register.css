@@ -132,62 +132,20 @@ body {
     transform: rotate(360deg);
   }
 }
-.lt_container {
-  padding-bottom: 85px;
-}
-#OA_task_2 li {
+.myform {
   padding: 10px;
 }
-.mui-table-cell {
-  display: block;
-}
-.subtitle {
-  width: 60px;
-}
-.subcontent {
-  overflow: hidden;
-  padding: 0 10px;
-}
-.subcontent .proName {
-  height: 44px;
-}
-.subcontent .price {
-  color: red;
-}
-.subcontent .oldPrice {
-  font-size: 12px;
-  text-decoration: line-through;
-  color: #666;
-}
-.subcontent .mui-pull-right {
-  font-size: 12px;
-}
-.lt_money {
-  position: absolute;
+.myform .register {
   width: 100%;
-  bottom: 55px;
-  left: 0;
-  line-height: 30px;
-  height: 30px;
-  border-top: 1px solid #ccc;
-  font-size: 12px;
-  padding-left: 10px;
 }
-.lt_money .mui-pull-left {
-  color: red;
+.myform .setCode input {
+  width: 65%;
 }
-.edit-product {
-  text-align: left;
+.myform .setCode .getCode {
+  width: 30%;
+  height: 40px;
 }
-.edit-product span {
-  display: inline-block;
-  text-align: center;
-  width: 26px;
-  height: 26px;
-  line-height: 26px;
-  margin: 5px 0;
-  border: 1px solid #ccc;
-}
-.edit-product span.now {
-  background-color: #069;
+.myform .disabled {
+  background-color: #ccc;
+  border: 1px solid transparent;
 }

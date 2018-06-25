@@ -5,11 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>乐淘商城-登录页</title>
+  <title>乐淘商城-注册页</title>
   <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="lib/mui/css/mui.css">
   <link rel="stylesheet" href="lib/fa/css/font-awesome.css">
-  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/register.css">
 </head>
 
 <body>
@@ -18,27 +18,42 @@
       <a href="javascript:history.go(-1);" class="icon-left">
         <span class="mui-icon mui-icon-back"></span>
       </a>
-      <h4>登录中心</h4>
+      <h4>注册</h4>
     </div>
     <div class="lt_content">
-      <form class="mui-input-group">
+      <form class="myform">
         <div class="mui-input-row">
-          <label>用户名</label>
-          <input type="text" class="mui-input-clear" placeholder="请输入用户名" name="username">
+          <input type="text" class="mui-input-clear" placeholder="请输入用户名" name="username" id="username">
         </div>
         <div class="mui-input-row">
-          <label>密码</label>
-          <input type="password" class="mui-input-password" placeholder="请输入密码" name="password">
+          <input type="password" class="mui-input-password" placeholder="请输入密码" name="password" id="password">
         </div>
-        <div class="mui-button-row">
-          <button type="button" class="mui-btn mui-btn-primary" id="login">确认</button>
-          <button type="button" class="mui-btn mui-btn-danger">取消</button>
+        <div class="mui-input-row">
+          <input type="password" class="mui-input-password" placeholder="请确认密码" id="confirmpassword">
+        </div>
+        <div class="mui-input-row">
+          <input type="text" class="mui-input-clear" placeholder="请输入手机号码" name="mobile" id="mobile">
+        </div>
+        <div class="mui-input-row setCode">
+            <input type="text" class="mui-input-clear" placeholder="请输入验证码" name="vCode" id="vCode">
+            <button type="button" class="mui-btn mui-btn-primary getCode mui-pull-right">获取验证码</button>
+          </div>
+        <div class="mui-input-row">
+          <button type="button" class="mui-btn mui-btn-primary register">注册</button>
+        </div><div class="mui-clearfix">
+            <div class="mui-pull-left">
+                <input type="checkbox">
+                我同意会员用户协议
+            </div>
+            <div class="mui-pull-right">
+              <span class="mui-btn mui-btn-link">
+                立即登录
+              </span>
+            </div>
+          </div>
         </div>
       </form>
-      <div class="mui-pull-right">
-        <a href="register.html" class="mui-btn mui-btn-link">免费注册</a>
-      </div>
-    </div>
+      
     <div class="lt_footer">
       <ul>
         <li>
@@ -71,7 +86,7 @@
   <script src="lib/zepto/zepto.min.js"></script>
   <script src="lib/mui/js/mui.js"></script>
   <script src="js/common.js"></script>
-  <script src="js/login.js"></script>
+  <script src="js/register.js"></script>
 </body>
 
 </html>

@@ -135,7 +135,8 @@ $(function () {
 
     });
 
-
+   
+   
     $(".lt_total .total").text(total.toFixed(2));
 
   });
